@@ -20,12 +20,14 @@ import javax.swing.JButton;
 public class VentanaPrincipal extends JFrame {
 
 	Toolkit screen;
-	private static final int PWIDTH = 550;
-	private static final int PHEIGH = 750;
-	private JTextField n1;
-	private JTextField n2;
+	private static final int PWIDTH = 750;
+	private static final int PHEIGH = 348;
+	private JTextField p1;
+	private JTextField q1;
 	private JTextField e1;
 	private JTextField e2;
+	private JTextField p2;
+	private JTextField q2;
 
 	public VentanaPrincipal() {
 
@@ -33,9 +35,9 @@ public class VentanaPrincipal extends JFrame {
 
 		// setBounds(panelWith / 2, panelHeight / 2, panelWith, panelHeight);
 
-		setBounds(1024 / 4, 768 / 6, PHEIGH, PWIDTH);
+		setBounds(1024 / 4, 768 / 6, PWIDTH, PHEIGH);
 
-		setTitle("Solitario");
+		setTitle("Chat");
 
 		setResizable(false);
 
@@ -51,48 +53,72 @@ public class VentanaPrincipal extends JFrame {
 
 		getContentPane().setLayout(null);
 		
-		n1 = new JTextField();
-		n1.setBounds(379, 143, 134, 20);
-		getContentPane().add(n1);
-		n1.setColumns(10);
+		p1 = new JTextField();
+		p1.setText("249879448303");
+		p1.setBounds(235, 71, 134, 20);
+		getContentPane().add(p1);
+		p1.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("N del participante 1");
-		lblNewLabel.setBounds(250, 146, 119, 14);
+		JLabel lblNewLabel = new JLabel("P del participante 1");
+		lblNewLabel.setBounds(106, 74, 119, 14);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblNDelParticipante = new JLabel("N del participante 2");
-		lblNDelParticipante.setBounds(250, 175, 119, 14);
+		JLabel lblNDelParticipante = new JLabel("Q del participante 1");
+		lblNDelParticipante.setBounds(106, 103, 119, 14);
 		getContentPane().add(lblNDelParticipante);
 		
-		n2 = new JTextField();
-		n2.setColumns(10);
-		n2.setBounds(379, 172, 134, 20);
-		getContentPane().add(n2);
+		q1 = new JTextField();
+		q1.setText("249879448349");
+		q1.setColumns(10);
+		q1.setBounds(235, 102, 134, 20);
+		getContentPane().add(q1);
 		
-		JLabel lblEDelParticipante = new JLabel("e del participante 2");
-		lblEDelParticipante.setBounds(250, 213, 119, 14);
+		JLabel lblEDelParticipante = new JLabel("e del participante 1");
+		lblEDelParticipante.setBounds(250, 145, 119, 14);
 		getContentPane().add(lblEDelParticipante);
 		
 		JLabel lblEDelParticipante_1 = new JLabel("e del participante 2");
-		lblEDelParticipante_1.setBounds(250, 244, 119, 14);
+		lblEDelParticipante_1.setBounds(250, 176, 119, 14);
 		getContentPane().add(lblEDelParticipante_1);
 		
 		e1 = new JTextField();
+		e1.setText("356812573");
 		e1.setColumns(10);
-		e1.setBounds(379, 210, 134, 20);
+		e1.setBounds(379, 142, 134, 20);
 		getContentPane().add(e1);
 		
 		e2 = new JTextField();
+		e2.setText("80263681");
 		e2.setColumns(10);
-		e2.setBounds(379, 241, 134, 20);
+		e2.setBounds(379, 173, 134, 20);
 		getContentPane().add(e2);
 		
 		
 		listener list = new listener();
 		JButton iniciar = new JButton("Iniciar chat");
-		iniciar.setBounds(250, 314, 263, 36);
+		iniciar.setBounds(250, 220, 263, 36);
 		iniciar.addActionListener(list);
 		getContentPane().add(iniciar);
+		
+		JLabel lblPDelParticipante = new JLabel("P del participante 2");
+		lblPDelParticipante.setBounds(387, 74, 119, 14);
+		getContentPane().add(lblPDelParticipante);
+		
+		p2 = new JTextField();
+		p2.setText("27264083009");
+		p2.setColumns(10);
+		p2.setBounds(516, 71, 134, 20);
+		getContentPane().add(p2);
+		
+		q2 = new JTextField();
+		q2.setText("27264083017");
+		q2.setColumns(10);
+		q2.setBounds(516, 100, 134, 20);
+		getContentPane().add(q2);
+		
+		JLabel label_1 = new JLabel("Q del participante 2");
+		label_1.setBounds(387, 103, 119, 14);
+		getContentPane().add(label_1);
 
 		
 		
@@ -108,8 +134,8 @@ public class VentanaPrincipal extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-			Chat chat1 = new Chat("Javi", new BigInteger(n1.getText()), new BigInteger(e1.getText()));
-			Chat chat2 = new Chat("Xian", new BigInteger(n2.getText()), new BigInteger(e2.getText()));
+			Chat chat1 = new Chat("Javi", new BigInteger(p1.getText()), new BigInteger(q1.getText()),new BigInteger(e1.getText()));
+			Chat chat2 = new Chat("Xian", new BigInteger(p1.getText()), new BigInteger(q2.getText()),new BigInteger(e2.getText()));
 			chat1.setOther(chat2);
 			chat2.setOther(chat1);
 			chat1.setVisible(true);
