@@ -130,14 +130,18 @@ public class Chat extends JFrame {
 		System.out.println(d + "     dsfdsfdsf");
 		// PASAR MSG A NUMERO
 		int N = alf.length;
-		System.out.println(N);
+		System.out.println(N + "   " + e);
 
-		double k = Math.log10(e.doubleValue()) / Math.log10(N);
+		double k = Math.log10(d.doubleValue()) / Math.log10(N);
 		System.out.println("K  :" + k);
 		// sacamos K, para descifrar hay que usar k+1 y cifrear k, que sería la parte
 		// entera del numero an terior, en este caso 11
 		// CAMBIAR DEPENDIENDO DE K
-		int K2 = 12;
+		
+		long iPart = (long) k;
+	
+		int K2 = (int) iPart + 1;
+		System.out.println("K2 " + K2);
 		// CAMBIAR DEPENDIENDO DE K
 		// CAMBIAR DEPENDIENDO DE K
 		System.out.println("LONGITUD: " + msgRecibidoCodificado.length());
