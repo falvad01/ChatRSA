@@ -99,7 +99,6 @@ public class Chat extends JFrame {
 		textArea.setBounds(50, 32, 919, 321);
 		getContentPane().add(textArea);
 
-		textArea.setText("aasdasd");
 
 	}
 
@@ -320,16 +319,23 @@ public class Chat extends JFrame {
 			}
 
 			for (int j = 0; j < outDeVerdad.size(); j++) {
-
+				if (j != 0 && outDeVerdad.get(j) == 74 && outDeVerdad.get(j - 1) == 74) {
+					System.out.println();
+					guardarMensaje.append("\n");
+				
+				} else {
 				System.out.print(alf[outDeVerdad.get(j)]);
 				guardarMensaje.append(alf[outDeVerdad.get(j)]);
-
+				}
 			}
 		}
 		
 		msgRecibidoDecodificado = guardarMensaje.toString();
 
-		textArea.setText(this.msgRecibidoDecodificado);
+	//	textArea.setText(this.msgRecibidoDecodificado);
+		//textArea.add(this.msgRecibidoDecodificado);
+		textArea.append("\n"+this.msgRecibidoDecodificado);
+		textArea.append("\n-------------------------------------------------------------------------------------------------");
 
 	}
 
