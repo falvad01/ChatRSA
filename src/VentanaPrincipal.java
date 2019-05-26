@@ -30,6 +30,7 @@ public class VentanaPrincipal extends JFrame {
 	private JTextField q2;
 
 	public VentanaPrincipal() {
+		getContentPane().setBackground(new Color(102, 153, 204));
 
 		screen = Toolkit.getDefaultToolkit();
 

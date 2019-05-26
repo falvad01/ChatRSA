@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JTextPane;
 
 import javax.swing.JTextArea;
+import java.awt.Color;
 
 public class Chat extends JFrame {
 
@@ -38,6 +39,7 @@ public class Chat extends JFrame {
 	private String msgRecibidoDecodificado;
 
 	public Chat(String nombre, BigInteger p, BigInteger q, BigInteger e) {
+		getContentPane().setBackground(new Color(102, 153, 204));
 
 		screen = Toolkit.getDefaultToolkit();
 
@@ -95,6 +97,7 @@ public class Chat extends JFrame {
 		getContentPane().add(enviar);
 
 		textArea = new JTextArea();
+		textArea.setBackground(new Color(102, 153, 204));
 
 		textArea.setBounds(50, 32, 919, 321);
 		getContentPane().add(textArea);
