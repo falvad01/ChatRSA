@@ -12,6 +12,7 @@ import javax.swing.JTextPane;
 
 import javax.swing.JTextArea;
 import java.awt.Color;
+import javax.swing.JLabel;
 
 public class Chat extends JFrame {
 
@@ -20,7 +21,7 @@ public class Chat extends JFrame {
 	private static final int PHEIGH = 1000;
 	private JTextField textField;
 	private JTextField textField_1;
-	JTextArea textArea;
+	JTextArea txtrRecibidos;
 
 	private char[] alf = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q',
 			'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
@@ -37,6 +38,7 @@ public class Chat extends JFrame {
 	private String msgCodificado;
 	private String msgRecibidoCodificado;
 	private String msgRecibidoDecodificado;
+	private JLabel lblNewLabel;
 
 	public Chat(String nombre, BigInteger p, BigInteger q, BigInteger e) {
 		getContentPane().setBackground(new Color(102, 153, 204));
@@ -96,11 +98,16 @@ public class Chat extends JFrame {
 		enviar.addActionListener(list);
 		getContentPane().add(enviar);
 
-		textArea = new JTextArea();
-		textArea.setBackground(new Color(102, 153, 204));
+		txtrRecibidos = new JTextArea();
+		txtrRecibidos.setText("Recibidos:");
+		txtrRecibidos.setBackground(new Color(102, 153, 204));
 
-		textArea.setBounds(50, 32, 919, 321);
-		getContentPane().add(textArea);
+		txtrRecibidos.setBounds(50, 32, 919, 321);
+		getContentPane().add(txtrRecibidos);
+		
+		lblNewLabel = new JLabel("Chat cifrado RSA por bloques");
+		lblNewLabel.setBounds(22, 7, 200, 14);
+		getContentPane().add(lblNewLabel);
 
 
 	}
@@ -337,8 +344,8 @@ public class Chat extends JFrame {
 
 	//	textArea.setText(this.msgRecibidoDecodificado);
 		//textArea.add(this.msgRecibidoDecodificado);
-		textArea.append("\n"+this.msgRecibidoDecodificado);
-		textArea.append("\n-------------------------------------------------------------------------------------------------");
+		txtrRecibidos.append("\n"+this.msgRecibidoDecodificado);
+		txtrRecibidos.append("\n-------------------------------------------------------------------------------------------------");
 
 	}
 

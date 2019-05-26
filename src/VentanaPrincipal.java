@@ -16,6 +16,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -120,6 +121,19 @@ public class VentanaPrincipal extends JFrame {
 		JLabel label_1 = new JLabel("Q del participante 2");
 		label_1.setBounds(387, 103, 119, 14);
 		getContentPane().add(label_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("Proyecto seguridad infomática, Chat RSA por bloques");
+		lblNewLabel_1.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 29));
+		lblNewLabel_1.setBounds(44, 11, 667, 49);
+		getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Xian Garcia Nogueira");
+		lblNewLabel_2.setBounds(561, 279, 124, 14);
+		getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblFranciscoJavierAlvarez = new JLabel("Francisco Javier Alvarez de Celis");
+		lblFranciscoJavierAlvarez.setBounds(561, 294, 173, 14);
+		getContentPane().add(lblFranciscoJavierAlvarez);
 
 		
 		
