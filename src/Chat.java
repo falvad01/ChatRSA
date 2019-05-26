@@ -46,7 +46,7 @@ public class Chat extends JFrame {
 		setBounds(1024 / 4, 768 / 6, PHEIGH, PWIDTH);
 
 		setTitle("Chat " + nombre);
-
+		
 		setResizable(false);
 		this.nombre = nombre;
 		this.p = p;
@@ -65,7 +65,7 @@ public class Chat extends JFrame {
 	public void setMsgRecibidoCodificado(String s) {
 		System.out.println(nombre + " recibe el mensaje");
 		this.msgRecibidoCodificado = s;
-
+		
 	}
 
 	private void initComponents() {
@@ -111,6 +111,7 @@ public class Chat extends JFrame {
 		fiPepa = p.subtract(uno).multiply(q.subtract(uno));
 		System.out.println("Fi de Pepa: " + fiPepa);
 
+
 		BigInteger eInvertida = e;
 		BigInteger d = eInvertida.modInverse(fiPepa);
 		System.out.println(d + "     dsfdsfdsf");
@@ -123,9 +124,10 @@ public class Chat extends JFrame {
 		// sacamos K, para descifrar hay que usar k+1 y cifrear k, que serÃ­a la parte
 		// entera del numero an terior, en este caso 11
 
+		
 		long iPart = (long) k;
-
-		int K2 = (int) iPart;
+	
+		int K2 = (int) iPart ;
 		System.out.println("K2 " + K2);
 
 		System.out.println("LONGITUD: " + msgSinCodificar.length());
@@ -152,19 +154,23 @@ public class Chat extends JFrame {
 				}
 
 			}
-
+	
 			salida[contadorDeI] = posicion;
-			if (contadorDeI == K2 - 1 && i != 0) {
+			if (contadorDeI == K2-1 && i != 0) {
+				
 
-				BigInteger resultado = calcularEntero(0, N, salida, K2);
 
-				// C= m ^e mod n
-				System.out.println("res antes de la potenciacion :" + resultado);
-				Potencia pot2 = new Potencia(resultado, other.e, other.n);
+				BigInteger resultado = calcularEntero(0, N, salida,K2);
+				
+				//C= m ^e mod n
+				System.out.println("res antes de la potenciacion :"+ resultado);
+				Potencia pot2 = new Potencia(resultado,other.e, other.n);
 				resultado = pot2.Apotenciacion();
-				System.out.println("res " + resultado);
+				System.out.println("res "+resultado);
 				arr.add(resultado);
-
+				
+				
+				
 				contadorDeI = 0;
 				salida = new int[K2];
 
@@ -185,30 +191,33 @@ public class Chat extends JFrame {
 			BigInteger cociente = new BigInteger("0");
 			BigInteger resto = new BigInteger("0");
 
+
 			while (m.compareTo(new BigInteger("84")) == 1) {
 
 				cociente = m.divide(new BigInteger("84"));
 				resto = m.remainder(new BigInteger("84"));
 				m = cociente;
-
+				
 				out.add(resto.intValue());
 
 			}
 			ArrayList<Integer> outDeVerdad = new ArrayList<Integer>();
+	
 
-			if (out.size() < K2) {
-
+			if (out.size() < K2 ) {
+			
 				outDeVerdad.add(0);
 
-			}
-			System.out.println("tamnaño del msg codificado : " + out.size());
-
+		}
+			System.out.println("tamnaño del msg codificado : "+out.size());
+			
 			outDeVerdad.add(cociente.intValue());
 			for (int j = out.size() - 1; j >= 0; j--) {
 				outDeVerdad.add(out.get(j));
 
 			}
 
+		
 			// System.out.println("en letra");
 			for (int j = 0; j < outDeVerdad.size(); j++) {
 				if (j != 0 && outDeVerdad.get(j) == 74 && outDeVerdad.get(j - 1) == 74) {
@@ -224,10 +233,14 @@ public class Chat extends JFrame {
 		System.out.println("En metodo decodificar");
 		System.out.println(guardarMensaje.toString());
 		msgCodificado = guardarMensaje.toString();
-
+		
+		
+		
 		textField_1.setText(this.msgCodificado);
+		
 
 	}
+	
 
 	public void decodificar() {
 		System.out.println(this.msgRecibidoCodificado);
@@ -236,6 +249,7 @@ public class Chat extends JFrame {
 
 		fiPepa = p.subtract(uno).multiply(q.subtract(uno));
 		System.out.println("Fi de Pepa: " + fiPepa);
+
 
 		BigInteger eInvertida = e;
 		BigInteger d = eInvertida.modInverse(fiPepa);
@@ -249,9 +263,9 @@ public class Chat extends JFrame {
 		// sacamos K, para descifrar hay que usar k+1 y cifrear k, que serÃ­a la parte
 		// entera del numero an terior, en este caso 11
 		// CAMBIAR DEPENDIENDO DE K
-
+		
 		long iPart = (long) k;
-
+	
 		int K2 = (int) iPart + 1;
 		System.out.println("K2 " + K2);
 
@@ -278,15 +292,16 @@ public class Chat extends JFrame {
 				}
 
 			}
-
+			
 			salida[contadorDeI] = posicion;
-			if (contadorDeI == K2 - 1 && i != 0) {
+			if (contadorDeI == K2-1 && i != 0) {
 
-				BigInteger resultado = calcularEntero(0, N, salida, K2);
-				System.out.println("salida vale: " + resultado);
+
+				BigInteger resultado = calcularEntero(0, N, salida,K2);
+				 System.out.println("salida vale: "+ resultado);
 				Potencia pot = new Potencia(resultado, d, n);
 				resultado = pot.Apotenciacion();
-				System.out.println("despues de la potencia modular vale: " + resultado);
+				System.out.println("despues de la potencia modular vale: "+ resultado);
 				arr.add(resultado);
 				contadorDeI = 0;
 				salida = new int[K2];
@@ -318,7 +333,7 @@ public class Chat extends JFrame {
 
 			}
 			ArrayList<Integer> outDeVerdad = new ArrayList<Integer>();
-			System.out.println(out.size());
+			 System.out.println(out.size());
 			if (out.size() < K2 - 2) {
 				System.out.println("añadooo");
 				outDeVerdad.add(0);
@@ -333,23 +348,27 @@ public class Chat extends JFrame {
 			for (int j = 0; j < outDeVerdad.size(); j++) {
 
 			}
-
+			
 			for (int j = 0; j < outDeVerdad.size(); j++) {
-
-				System.out.print(alf[outDeVerdad.get(j)]);
-				guardarMensaje.append(alf[outDeVerdad.get(j)]);
-
+				
+				
+					System.out.print(alf[outDeVerdad.get(j)]);
+					guardarMensaje.append(alf[outDeVerdad.get(j)]);
+				
 			}
 		}
 		System.out.println("En metodo decodificar");
 		System.out.println(guardarMensaje.toString());
 		msgRecibidoDecodificado = guardarMensaje.toString();
-
+		
+		
+		
 		textArea.setText(this.msgRecibidoDecodificado);
+		
 
 	}
 
-	private BigInteger calcularEntero(long bL, int pot, int[] listaB, int K) {
+	private BigInteger calcularEntero(long bL, int pot, int[] listaB,int K) {
 		BigInteger b = BigInteger.valueOf(bL);
 		BigInteger potbL = BigInteger.valueOf(pot);
 		for (int i = 0; i < listaB.length; i++) {
@@ -369,10 +388,10 @@ public class Chat extends JFrame {
 			if (arg0.getActionCommand().equals("Enviar")) {
 
 				String aEnviar = textField_1.getText();
-
+				
 				other.setMsgRecibidoCodificado(aEnviar);
 				other.decodificar();
-
+				
 			} else if (arg0.getActionCommand().equals("Codificar")) {
 				System.out.println();
 				String aCodificar = textField.getText();
@@ -381,31 +400,32 @@ public class Chat extends JFrame {
 				fiPepa = p.subtract(uno).multiply(q.subtract(uno));
 				BigInteger eInvertida = e;
 				BigInteger d = eInvertida.modInverse(fiPepa);
-
+				
+				
 				int N = alf.length;
+				
 
 				double k = Math.log10(d.doubleValue()) / Math.log10(N);
 				System.out.println("K  :" + k);
-
+				
 				long iPart = (long) k;
-
-				int K2 = (int) iPart;
+			
+				int K2 = (int) iPart ;
 				System.out.println("K2 " + K2);
-
-				if (aCodificar.length() % K2 != 0) {
-					JOptionPane.showMessageDialog(null,
-							"El tamaño del mensaje tiene que ser de k veces, en este caso tiene que ser multiplo o divisor de "
-									+ K2 + "\n Faltan :" + (K2 - (aCodificar.length() % K2)) + " caracteres",
-							"ERROR EN EL TAMAÑO", JOptionPane.WARNING_MESSAGE);
-				} else {
-
-					msgSinCodificar = aCodificar;
-					codificar();
+				
+				if (aCodificar.length()%K2!=0) {
+					JOptionPane.showMessageDialog(null, "El tamaño del mensaje tiene que ser de k veces, en este caso tiene que ser multiplo o divisor de "+K2+"\n Faltan :"+(K2-(aCodificar.length()%K2))+ " caracteres", "ERROR EN EL TAMAÑO", JOptionPane.WARNING_MESSAGE);
+				}else {
+				
+		
+				msgSinCodificar= aCodificar;
+				codificar();
 				}
-
+			
 			}
 
 		}
+		
 
 	}
 }
