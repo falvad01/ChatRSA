@@ -150,7 +150,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			
 			Chat chat1 = new Chat("Javi", new BigInteger(p1.getText()), new BigInteger(q1.getText()),new BigInteger(e1.getText()));
-			Chat chat2 = new Chat("Xian", new BigInteger(p1.getText()), new BigInteger(q2.getText()),new BigInteger(e2.getText()));
+			Chat chat2 = new Chat("Xian", new BigInteger(p2.getText()), new BigInteger(q2.getText()),new BigInteger(e2.getText()));
 			chat1.setOther(chat2);
 			chat2.setOther(chat1);
 			chat1.setVisible(true);

@@ -57,7 +57,12 @@ public class Chat extends JFrame {
 		this.q = q;
 		this.n = this.p.multiply(this.q);
 		this.e = e;
-
+		System.out.println("chat "+ nombre);
+		System.out.println("n: "+n);
+		System.out.println("p: "+p);
+		System.out.println("q: "+q);
+		System.out.println("e: "+e);
+		
 		initComponents();
 
 	}
@@ -247,7 +252,8 @@ public class Chat extends JFrame {
 		long iPart = (long) k;
 
 		int K2 = (int) iPart + 1;
-
+		System.out.println("k2: "+K2);
+		System.out.println("tamaño del msg "+ msgRecibidoCodificado.length());
 		char msgEnChar[] = new char[msgRecibidoCodificado.length()];
 
 		for (int i = 0; i < msgRecibidoCodificado.length(); i++) {
@@ -327,7 +333,7 @@ public class Chat extends JFrame {
 				outDeVerdad.add(out.get(j));
 
 			}
-
+System.out.println("tamañod e bloques: "+outDeVerdad.size());
 			for (int j = 0; j < outDeVerdad.size(); j++) {
 				if (j != 0 && outDeVerdad.get(j) == 74 && outDeVerdad.get(j - 1) == 74) {
 					System.out.println();
